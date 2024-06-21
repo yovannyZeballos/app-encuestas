@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --bs-primary-rgb: 0, 30, 87;
+    
+}
+
+.mt-10 {
+    margin-top: 6rem;
+}
+
+body {
+    font-size: 20px;
+}
+
+.mx-10 {
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+
+.btn-primary {
+    background-color: #001E57 !important;
+    border-color: #001E57 !important;
+}
+
+.btn-primary:hover {
+    background-color: #243658 !important;
+}
+
+
