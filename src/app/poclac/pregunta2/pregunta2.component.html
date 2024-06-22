@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="siguiente()" novalidate>
+    <div class="row">
+        <div class="col-12">
+            <span *ngIf="(submitted || form.get('rol')?.touched) && form.get('rol')?.hasError('required')" class="text-valid">
+                ❗ Esta pregunta requiere una respuesta.
+            </span>
+        </div>
+        <div class="col-12">
+            <label for="nombreEncuestado" class="form-label text-primary"><b>*</b> 2. Por favor indique su rol: </label>
+        </div>
+        <div *ngFor="let item of roles; let i = index" class="col-sm-12 col-md-6 col-lg-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="rol" [value]="item.value" formControlName="rol" required>
+                <label class="form-check-label" for="rol">
+                   {{item.label}}
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <button type="button" routerLink="/poclac/p1" class="btn btn-primary px-5 py-3 mt-2 mx-2">Ant.</button>
+        <button type="submit" class="btn btn-primary px-5 py-3 mt-2 mx-2">Sig.</button>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="siguiente()" novalidate>
+    <div class="row">
+        <div class="col-12">
+            <span *ngIf="(submitted || form.get('tribu')?.touched) && form.get('tribu')?.hasError('required')" class="text-valid">
+                ❗ Esta pregunta requiere una respuesta.
+            </span>
+        </div>
+        <div class="col-12">
+            <label for="nombreEncuestado" class="form-label text-primary"><b>*</b> 3. Indique la Tribu/COE donde estan asignado los members: </label>
+        </div>
+        <div *ngFor="let tribu of tribus; let i = index" class="col-sm-12 col-md-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="tribu" [id]="tribu.id" [value]="tribu.id" formControlName="tribu" required>
+                <label class="form-check-label" [for]="tribu.id">
+                   {{tribu.nombre}}
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <button type="button" routerLink="/poclac/p2" class="btn btn-primary px-5 py-3 mt-2 mx-2">Ant.</button>
+        <button type="submit" class="btn btn-primary px-5 py-3 mt-2 mx-2">Sig.</button>
+    </div>
+</form>

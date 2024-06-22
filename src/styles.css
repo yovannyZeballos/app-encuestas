@@ -26,4 +26,7 @@ body {
     background-color: #243658 !important;
 }
 
-
+.text-valid {
+    font-size: .8em;
+    color: #ce0000dd;
+}

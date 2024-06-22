@@ -1,0 +1,17 @@
+[
+    {"id": 1, "nombre": "Canal Ecommerce"},
+    {"id": 2, "nombre": "La Chakra"},
+    {"id": 3, "nombre": "Squads independientes"},
+    {"id": 4, "nombre": "Tribu Chicha"},
+    {"id": 5, "nombre": "Tribu Clásica Moderna"},
+    {"id": 6, "nombre": "Tribu Criolla"},
+    {"id": 7, "nombre": "Tribu Disco"},
+    {"id": 8, "nombre": "Tribu Electrónica"},
+    {"id": 9, "nombre": "Tribu Latin Pop"},
+    {"id": 10, "nombre": "Tribu Neo Insure"},
+    {"id": 11, "nombre": "Tribu Punk"},
+    {"id": 12, "nombre": "Tribu Reggae"},
+    {"id": 13, "nombre": "Tribu Rock Alternativo"},
+    {"id": 14, "nombre": "Tribu Salsa"},
+    {"id": 15, "nombre": "Tribu Techno"}
+]
