@@ -1,6 +1,6 @@
 [
-    { "label": "Chapter Leader", "value": "CL" },
-    { "label": "Product Owner", "value": "PO" },
-    { "label": "Focal Point", "value": "FP" },
-    { "label": "Agile Coach", "value": "AC" }
+    { "nombre": "Chapter Leader", "id": "CL" },
+    { "nombre": "Product Owner", "id": "PO" },
+    { "nombre": "Focal Point", "id": "FP" },
+    { "nombre": "Agile Coach", "id": "AC" }
 ]

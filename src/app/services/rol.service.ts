@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RolesService {
-  private rolesUrl = 'assets/data/roles.json'; // URL a la API
+  private url = 'https://api-encuestas.netlify.app/.netlify/functions/api/';
 
   constructor(private http: HttpClient) { }
 
   getRoles(): Observable<any[]> {
-    return this.http.get<any[]>(this.rolesUrl);
+    return this.http.get<any[]>(this.url + 'rol');
   }
 }

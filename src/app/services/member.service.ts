@@ -6,24 +6,20 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class MemberService {
-  private url = 'assets/data/members.json';
+  private url = 'https://api-encuestas.netlify.app/.netlify/functions/api';
 
   constructor(private http: HttpClient) { }
 
   listar(): Observable<any[]> {
-    return this.http.get<any[]>(this.url);
+    return this.http.get<any[]>(`${this.url}/member`);
   }
 
   listarPorSquad(idSquad: number): Observable<any[]> {
-    return this.http.get<any[]>(this.url).pipe(
-      map(members => members.filter(member => member.idSquad === idSquad))
-    );
+    return this.http.get<any[]>(`${this.url}/squad/${idSquad}/member`);
   }
 
   obtener(id: number): Observable<any> {
-    return this.http.get<any[]>(this.url).pipe(
-      map(members => members.find(member => member.id === id))
-    );
+    return this.http.get<any>(`${this.url}/member/${id}`)
   }
 
 }

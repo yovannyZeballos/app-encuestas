@@ -6,17 +6,17 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class NivelCumplimientoService {
-  private url = 'assets/data/nivel-cumplimientos.json'; // URL a la API
+  private url = 'https://api-encuestas.netlify.app/.netlify/functions/api';
 
   constructor(private http: HttpClient) { }
 
   listar(): Observable<any[]> {
-    return this.http.get<any[]>(this.url);
+    return this.http.get<any[]>(`${this.url}/nivel-cumplimiento`).pipe(
+      map(response => response.sort((a, b) => a.id - b.id))
+    );
   }
 
   obtener(id: number): Observable<any> {
-    return this.http.get<any[]>(this.url).pipe(
-      map(tribus => tribus.find(tribu => tribu.id === id))
-    );
+    return this.http.get<any[]>(`${this.url}/nivel-cumplimiento/${id}`);
   }
 }

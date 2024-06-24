@@ -9,11 +9,11 @@
             <label for="nombreEncuestado" class="form-label text-primary"><b>*</b> 2. Por favor indique su rol: </label>
         </div>
         <div *ngFor="let item of roles; let i = index" class="col-sm-12 col-md-6 col-lg-3 checkbox-container"
-        style="font-size: small;"  [ngClass]="{'checked': form.controls['rol'].value === item.value}" >
+        style="font-size: small;"  [ngClass]="{'checked': form.controls['rol'].value === item.id}" >
             <div class="form-check">
-                <input class="form-check-input" type="radio" [id]="item.value" name="rol" [value]="item.value" formControlName="rol" required>
-                <label class="form-check-label" [for]="item.value">
-                   {{item.label}}
+                <input class="form-check-input" type="radio" [id]="item.id" name="rol" [value]="item.id" formControlName="rol" required>
+                <label class="form-check-label" [for]="item.id">
+                   {{item.nombre}}
                 </label>
             </div>
         </div>

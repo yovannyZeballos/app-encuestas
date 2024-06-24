@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RolesService } from '../../services/rol.service';
 import { TribuService } from '../../services/tribu.service';
 import { Router } from '@angular/router';
 

@@ -6,17 +6,15 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class TribuService {
-  private url = 'assets/data/tribus.json'; // URL a la API
+  private url = 'https://api-encuestas.netlify.app/.netlify/functions/api/';
 
   constructor(private http: HttpClient) { }
 
   listar(): Observable<any[]> {
-    return this.http.get<any[]>(this.url);
+    return this.http.get<any[]>(this.url + 'tribu');
   }
 
   obtener(id: number): Observable<any> {
-    return this.http.get<any[]>(this.url).pipe(
-      map(tribus => tribus.find(tribu => tribu.id === id))
-    );
+    return this.http.get<any[]>(this.url + 'tribu/' + id);
   }
 }

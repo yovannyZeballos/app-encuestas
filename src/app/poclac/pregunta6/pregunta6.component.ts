@@ -46,6 +46,7 @@ export class Pregunta6Component implements OnInit, OnDestroy {
     this.listarNivelCumplimiento();
     this.listarTipoFeedback();
     this.setarData();
+    this.validarMembers();
   }
 
   ngOnDestroy() {
@@ -186,6 +187,12 @@ export class Pregunta6Component implements OnInit, OnDestroy {
     const keys = Object.keys(localStorage);
     const memberKeys = keys.filter(key => key.startsWith('member_'));
     memberKeys.forEach(key => localStorage.removeItem(key));
+  }
+
+  validarMembers(){
+    if (this.members.length === 0) {
+      this.router.navigate(['/poclac/p5']);
+    }
   }
 
 }
