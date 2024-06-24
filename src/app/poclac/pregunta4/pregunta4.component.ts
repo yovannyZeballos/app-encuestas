@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { SquadService } from '../../services/squads.service';
 
 @Component({
-  selector: 'app-pregunta3',
+  selector: 'app-pregunta4',
   templateUrl: './pregunta4.component.html',
   styleUrl: './pregunta4.component.css'
 })
@@ -21,7 +21,7 @@ export class Pregunta4Component implements OnInit {
     private squadService: SquadService,
     private router: Router
   ) {
-    const squad = Number(localStorage.getItem('squad')  || '0');
+    const squad = Number(localStorage.getItem('squad')) || undefined;
     this.form = new FormGroup({
       squad: new FormControl(squad, Validators.required),
     });
@@ -48,5 +48,12 @@ export class Pregunta4Component implements OnInit {
       localStorage.setItem('squad', this.form.value.squad);
       this.router.navigate(['/poclac/p5']);
     }
+  }
+
+  changeSquad(){
+    localStorage.removeItem('members')
+    const keys = Object.keys(localStorage);
+    const memberKeys = keys.filter(key => key.startsWith('member_'));
+    memberKeys.forEach(key => localStorage.removeItem(key));
   }
 }

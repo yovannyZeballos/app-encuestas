@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Pregunta2Component } from './pregunta2/pregunta2.component';
 import { Pregunta3Component } from './pregunta3/pregunta3.component';
 import { Pregunta4Component } from './pregunta4/pregunta4.component';
+import { Pregunta5Component } from './pregunta5/pregunta5.component';
+import { Pregunta6Component } from './pregunta6/pregunta6.component';
+import { Pregunta7Component } from './pregunta7/pregunta7.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { Pregunta4Component } from './pregunta4/pregunta4.component';
     Pregunta1Component,
     Pregunta2Component,
     Pregunta3Component,
-    Pregunta4Component
+    Pregunta4Component,
+    Pregunta5Component,
+    Pregunta6Component,
+    Pregunta7Component
   ],
   imports: [
     CommonModule,

@@ -18,7 +18,9 @@ export class Pregunta3Component implements OnInit {
   constructor(private tribuService: TribuService,
     private router: Router
   ) {
-    const tribu = Number(localStorage.getItem('tribu')  || '0');
+    
+    const tribu = Number(localStorage.getItem('tribu')) || undefined;
+    
     this.form = new FormGroup({
       tribu: new FormControl(tribu, Validators.required),
     });
@@ -37,5 +39,9 @@ export class Pregunta3Component implements OnInit {
       localStorage.setItem('tribu', this.form.value.tribu);
       this.router.navigate(['/poclac/p4']);
     }
+  }
+
+  changeTribu(){
+    localStorage.removeItem('squad');
   }
 }

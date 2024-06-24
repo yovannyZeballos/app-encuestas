@@ -5,8 +5,8 @@ import { Observable, map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SquadService {
-  private url = 'assets/data/squads.json';
+export class MemberService {
+  private url = 'assets/data/members.json';
 
   constructor(private http: HttpClient) { }
 
@@ -14,15 +14,15 @@ export class SquadService {
     return this.http.get<any[]>(this.url);
   }
 
-  listarPorTribu(idTribu: number): Observable<any[]> {
+  listarPorSquad(idSquad: number): Observable<any[]> {
     return this.http.get<any[]>(this.url).pipe(
-      map(squads => squads.filter(squad => squad.idTribu === idTribu))
+      map(members => members.filter(member => member.idSquad === idSquad))
     );
   }
 
   obtener(id: number): Observable<any> {
     return this.http.get<any[]>(this.url).pipe(
-      map(squads => squads.find(squad => squad.id === id))
+      map(members => members.find(member => member.id === id))
     );
   }
 

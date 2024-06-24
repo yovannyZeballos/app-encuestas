@@ -1,0 +1,26 @@
+<h4 class="text-primary"><b>Confirmación de envío de respuestas</b></h4>
+<br>
+
+<form (ngSubmit)="finalizar()" novalidate class="mb-5">
+
+    <div class="row">
+        <div class="col-12">
+            <label class="form-label text-primary">Dar click en <b>Finalizar</b> para enviar las respuestas</label>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center mt-2">
+        <button type="button" [disabled]="loading || finalizado" routerLink="/poclac/p6" class="btn btn-primary px-5 py-3 mt-2 mx-2">Ant.</button>
+
+        <button class="btn btn-primary px-5 py-3 mt-2 mx-2" [disabled]="loading || finalizado">
+            <span *ngIf="!loading">Finalizar</span>
+            <div *ngIf="loading" class="spinner-border spinner-border-sm text-light" role="status">
+              <span class="visually-hidden">Enviando...</span>
+            </div>
+          </button>
+
+    </div>
+</form>
+
+<div class="text-center text-primary" *ngIf="finalizado">
+    <h4>Gracias por completar nuestra encuesta</h4>
+</div>

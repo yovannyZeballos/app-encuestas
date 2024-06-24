@@ -30,3 +30,17 @@ body {
     font-size: .8em;
     color: #ce0000dd;
 }
+
+
+.checkbox-container {
+    padding: 10px;
+    border: 2px solid transparent; /* Borde transparente por defecto */
+    border-radius: 5px; /* Opcional: para bordes redondeados */
+  }
+  
+  .checkbox-container.checked {
+    border-color: #243658; /* Cambia el color del borde cuando está seleccionado */
+    background-color: #e9ecef; /* Opcional: cambia el fondo cuando está seleccionado */
+    font-weight: bold;;
+}
+  

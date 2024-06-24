@@ -5,8 +5,8 @@ import { Observable, map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SquadService {
-  private url = 'assets/data/squads.json';
+export class TipoFeedbackService {
+  private url = 'assets/data/tipo-feedback.json'; // URL a la API
 
   constructor(private http: HttpClient) { }
 
@@ -14,16 +14,9 @@ export class SquadService {
     return this.http.get<any[]>(this.url);
   }
 
-  listarPorTribu(idTribu: number): Observable<any[]> {
-    return this.http.get<any[]>(this.url).pipe(
-      map(squads => squads.filter(squad => squad.idTribu === idTribu))
-    );
-  }
-
   obtener(id: number): Observable<any> {
     return this.http.get<any[]>(this.url).pipe(
-      map(squads => squads.find(squad => squad.id === id))
+      map(tribus => tribus.find(tribu => tribu.id === id))
     );
   }
-
 }

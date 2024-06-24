@@ -1,0 +1,27 @@
+[
+    {
+        "id": 5,
+        "nombre": "Sobresaliente",
+        "descripcion": "El colaborador excede clara y sostenidamente los objetivos, expectativas y comportamientos esperados."
+    },
+    {
+        "id": 4,
+        "nombre": "Destacado",
+        "descripcion": "El colaborador excede varios de los objetivos, expectativas y comportamientos esperados."
+    },
+    {
+        "id": 3,
+        "nombre": "Muy bueno",
+        "descripcion": "El colaborador cumple con los objetivos, expectativas y comportamientos esperados."
+    },
+    {
+        "id": 2,
+        "nombre": "Necesita mejorar",
+        "descripcion": "El colaborador cumple con algunos objetivos, expectativas y comportamientos esperados."
+    },
+    {
+        "id": 1,
+        "nombre": "Bajo desempeño",
+        "descripcion": "El colaborador no cumple con la mayoría de los objetivos, expectativas y comportamientos esperados."
+    }
+]

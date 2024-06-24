@@ -5,6 +5,9 @@ import { HomePoclacComponent } from './home-poclac/home-poclac.component';
 import { Pregunta2Component } from './pregunta2/pregunta2.component';
 import { Pregunta3Component } from './pregunta3/pregunta3.component';
 import { Pregunta4Component } from './pregunta4/pregunta4.component';
+import { Pregunta5Component } from './pregunta5/pregunta5.component';
+import { Pregunta6Component } from './pregunta6/pregunta6.component';
+import { Pregunta7Component } from './pregunta7/pregunta7.component';
 
 export const routes: Routes = [
     {
@@ -30,6 +33,18 @@ export const routes: Routes = [
             {
                 path: 'p4',
                 component: Pregunta4Component
+            },
+            {
+                path: 'p5',
+                component: Pregunta5Component
+            },
+            {
+                path: 'p6',
+                component: Pregunta6Component
+            },
+            {
+                path: 'p7',
+                component: Pregunta7Component
             }
         ]
     }

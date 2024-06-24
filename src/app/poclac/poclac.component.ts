@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-poclac',
@@ -9,6 +10,12 @@ import { Component } from '@angular/core';
   </div>
   `,
 })
-export class PoclacComponent {
-  title = 'Encuesta PDI-POCLAC';
+export class PoclacComponent implements OnInit {
+  title = '2024 - Encuesta PDI-POCLAC';
+
+  constructor(private titleService: Title) {}
+
+  ngOnInit() {
+    this.titleService.setTitle(this.title);
+  }
 }

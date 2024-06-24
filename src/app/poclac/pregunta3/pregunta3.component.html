@@ -1,18 +1,22 @@
 <form [formGroup]="form" (ngSubmit)="siguiente()" novalidate>
     <div class="row">
         <div class="col-12">
-            <span *ngIf="(submitted || form.get('tribu')?.touched) && form.get('tribu')?.hasError('required')" class="text-valid">
+            <span *ngIf="(submitted || form.get('tribu')?.touched) && form.get('tribu')?.hasError('required')"
+                class="text-valid">
                 ❗ Esta pregunta requiere una respuesta.
             </span>
         </div>
         <div class="col-12">
-            <label for="nombreEncuestado" class="form-label text-primary"><b>*</b> 3. Indique la Tribu/COE donde estan asignado los members: </label>
+            <label for="nombreEncuestado" class="form-label text-primary"><b>*</b> 3. Indique la Tribu/COE donde estan
+                asignado los members: </label>
         </div>
-        <div *ngFor="let tribu of tribus; let i = index" class="col-sm-12 col-md-6 col-lg-4">
+        <div *ngFor="let tribu of tribus; let i = index" class="col-sm-12 col-md-6 col-lg-4 checkbox-container"
+            [ngClass]="{'checked': form.controls['tribu'].value === tribu.id}" style="font-size: small;">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="tribu" [id]="tribu.id" [value]="tribu.id" formControlName="tribu" required>
+                <input class="form-check-input" type="radio" name="tribu" [id]="tribu.id" [value]="tribu.id"
+                    formControlName="tribu" required (change)="changeTribu()">
                 <label class="form-check-label" [for]="tribu.id">
-                   {{tribu.nombre}}
+                    {{tribu.nombre}}
                 </label>
             </div>
         </div>
