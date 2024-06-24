@@ -25,7 +25,7 @@ import { Pregunta7Component } from './pregunta7/pregunta7.component';
     Pregunta4Component,
     Pregunta5Component,
     Pregunta6Component,
-    Pregunta7Component
+    Pregunta7Component,
   ],
   imports: [
     CommonModule,
