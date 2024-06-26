@@ -10,12 +10,13 @@ import { Router } from '@angular/router';
 export class Pregunta1Component {
   
   nombreEncuestado = localStorage.getItem('nombreEncuestado') || '';
-  nombreEncuestadoValido = false;
+  correoEncuestado = localStorage.getItem('correoEncuestado') || '';
 
   constructor(private router: Router) {}
 
   siguiente(){
     localStorage.setItem('nombreEncuestado', this.nombreEncuestado);
+    localStorage.setItem('correoEncuestado', this.correoEncuestado);
     this.router.navigate(['/poclac/p2']);
   }
 }

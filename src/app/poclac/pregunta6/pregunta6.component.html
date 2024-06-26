@@ -105,6 +105,12 @@
                 <li><b>Impacto:</b> Explicar el impacto del comportamiento en el equipo, proyecto o situación. Ejemplo: <b><i>"Esto ayudó a que todo el equipo entendiera la propuesta sin problemas y nos permitió avanzar con el proyecto sin retrasos."</i></b></li>
             </ul>
         </div>
+        <div class="col-12">
+            <span *ngIf="submitted && feedbackError"
+                class="text-valid">
+                ❗ Debe ingresar como mínimo un Feedback ya sea Apreciativo o Constructivo.
+            </span>
+        </div>
         <div class="col-12 mb-4">
             <label for="feedbackApreciativo" class="form-label text-primary">Indicar <b>uno o varios</b> feedbacks
                 <b>Apreciativo</b> ( Es aquel que se da para reconocer un comportamiento positivo, es decir, se enfoca en lo que se hizo bien.) hacia el Team Member: </label>

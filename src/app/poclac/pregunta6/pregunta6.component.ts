@@ -24,6 +24,7 @@ export class Pregunta6Component implements OnInit, OnDestroy {
   cantidadMembersEncuestados = 0;
   submitted = false;
   membersEncuestados: any[] = [];
+  feedbackError = true;
   private locationSubscription: SubscriptionLike;
 
   constructor(private nivelCumplimientoService: NivelCumplimientoService,
@@ -114,6 +115,16 @@ export class Pregunta6Component implements OnInit, OnDestroy {
   siguiente() {
 
     this.submitted = true;
+
+    const { feedbackApreciativo, feedbackConstructivo } = this.form.value;
+
+    console.log(feedbackApreciativo, feedbackConstructivo);
+    if (!feedbackApreciativo?.trim() && !feedbackConstructivo?.trim()) {
+      this.feedbackError = true;
+      return;
+    }
+
+    this.feedbackError = false;
 
     if (this.form.valid) {
 

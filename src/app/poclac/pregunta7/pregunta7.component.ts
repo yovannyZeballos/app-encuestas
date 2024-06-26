@@ -26,6 +26,7 @@ export class Pregunta7Component implements OnInit {
   this.loading = true;
   const idSquad = Number(localStorage.getItem('squad')) ?? 0;
   const nombreEncuestado = localStorage.getItem('nombreEncuestado') || '';
+  const correoEncuestado = localStorage.getItem('correoEncuestado') || '';
   const idRol = localStorage.getItem('rol') || '';
 
   const miembros = Object.keys(localStorage)
@@ -42,7 +43,8 @@ export class Pregunta7Component implements OnInit {
       desempeñoComo: feedback.como,
       desempeñoQue: feedback.que,
       feedbackApreciativo: feedback.feedbackApreciativo,
-      feedbackConstructivo: feedback.feedbackConstructivo
+      feedbackConstructivo: feedback.feedbackConstructivo,
+      correoEncuestado: correoEncuestado
     }))
   ).subscribe({
     complete: () => {

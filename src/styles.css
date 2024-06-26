@@ -8,6 +8,10 @@
     margin-top: 6rem;
 }
 
+.mt-8 {
+    margin-top: 5rem;
+}
+
 body {
     font-size: 20px;
 }
@@ -16,6 +20,12 @@ body {
     margin-left: 6rem;
     margin-right: 6rem;
 }
+
+.mx-8 {
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
 
 .btn-primary {
     background-color: #001E57 !important;

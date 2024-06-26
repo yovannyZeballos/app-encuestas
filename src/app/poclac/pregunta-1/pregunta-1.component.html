@@ -5,10 +5,18 @@
             <span *ngIf="(name.touched || registerForm.submitted) && name.hasError('required')" class="text-valid">
                 ❗ Esta pregunta requiere una respuesta.
             </span>
-            <label for="nombreEncuestado" class="form-label text-primary"><b>*</b> 1. Por favor ingrese su nombre y
+            <label for="nombreEncuestado" class="form-label text-primary"><b>*</b> Por favor ingrese su nombre y
                 apellido: </label>
             <input type="text" class="form-control" id="nombreEncuestado" name="nombreEncuestado"
                 [(ngModel)]="nombreEncuestado" #name="ngModel" required>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-6">
+            <span *ngIf="(correo.touched || registerForm.submitted) && correo.hasError('required')" class="text-valid">
+                ❗ Esta pregunta requiere una respuesta.
+            </span>
+            <label for="correoEncuestado" class="form-label text-primary"><b>*</b> Por favor ingrese su correo: </label>
+            <input type="email" class="form-control" id="correoEncuestado" name="correoEncuestado"
+                [(ngModel)]="correoEncuestado" #correo="ngModel" required>
         </div>
     </div>
 
