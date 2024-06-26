@@ -1,7 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { NivelCumplimientoService } from '../../services/nivel-cumplimiento.service';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { TipoFeedbackService } from '../../services/tipo-feedback.service';
 import { Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
@@ -10,10 +16,9 @@ import { Subscription, SubscriptionLike } from 'rxjs';
 @Component({
   selector: 'app-pregunta6',
   templateUrl: './pregunta6.component.html',
-  styleUrl: './pregunta6.component.css'
+  styleUrl: './pregunta6.component.css',
 })
 export class Pregunta6Component implements OnInit, OnDestroy {
-
   mensaje = '';
   cantidadMembers = 0;
   members = [];
@@ -25,17 +30,18 @@ export class Pregunta6Component implements OnInit, OnDestroy {
   submitted = false;
   membersEncuestados: any[] = [];
   feedbackError = true;
+  textBoton = 'Sig.';
   private locationSubscription: SubscriptionLike;
 
-  constructor(private nivelCumplimientoService: NivelCumplimientoService,
+  constructor(
+    private nivelCumplimientoService: NivelCumplimientoService,
     private fb: FormBuilder,
     private tipoFeedbackService: TipoFeedbackService,
     private router: Router,
     private viewportScroller: ViewportScroller,
     private location: Location
   ) {
-
-    this.locationSubscription = this.location.subscribe(event => {
+    this.locationSubscription = this.location.subscribe((event) => {
       this.eliminarMember();
     });
   }
@@ -48,6 +54,8 @@ export class Pregunta6Component implements OnInit, OnDestroy {
     this.listarTipoFeedback();
     this.setarData();
     this.validarMembers();
+    this.mostrarTextoBoton();
+    console.log(this.textBoton);
   }
 
   ngOnDestroy() {
@@ -58,20 +66,19 @@ export class Pregunta6Component implements OnInit, OnDestroy {
     window.removeEventListener('beforeunload', this.confirmarRecarga);
   }
 
-
   confirmacionRetroceso() {
-
-    const confirmacion = confirm('¿Estás seguro de regresar a la página anterior?. Los cambios avanzados hasta el momento se perderán.');
+    const confirmacion = confirm(
+      '¿Estás seguro de regresar a la página anterior?. Los cambios avanzados hasta el momento se perderán.'
+    );
     if (confirmacion) {
       this.eliminarMember();
       this.router.navigate(['/poclac/p5']);
     }
-
-
   }
 
   confirmarRecarga(event: BeforeUnloadEvent) {
-    const mensaje = '¿Estás seguro de que quieres recargar la página? Los cambios no guardados se perderán.';
+    const mensaje =
+      '¿Estás seguro de que quieres recargar la página? Los cambios no guardados se perderán.';
     event.returnValue = mensaje; // Estándar para la mayoría de los navegadores
     return mensaje; // Para algunos navegadores más antiguos
   }
@@ -87,13 +94,13 @@ export class Pregunta6Component implements OnInit, OnDestroy {
   }
 
   listarNivelCumplimiento() {
-    this.nivelCumplimientoService.listar().subscribe(data => {
+    this.nivelCumplimientoService.listar().subscribe((data) => {
       this.nivelesCumplimiento = data;
     });
   }
 
   listarTipoFeedback() {
-    this.tipoFeedbackService.listar().subscribe(data => {
+    this.tipoFeedbackService.listar().subscribe((data) => {
       this.feedbacks = data;
     });
   }
@@ -111,14 +118,22 @@ export class Pregunta6Component implements OnInit, OnDestroy {
     this.member = this.members[0];
   }
 
+  mostrarTextoBoton() {
+    if (this.cantidadMembersEncuestados === this.cantidadMembers - 1) {
+      this.textBoton = 'Finalizar';
+      return;
+    }
+
+    if (this.cantidadMembers > 1) {
+      this.textBoton = 'Sig. Member';
+    }
+  }
 
   siguiente() {
-
     this.submitted = true;
 
     const { feedbackApreciativo, feedbackConstructivo } = this.form.value;
 
-    console.log(feedbackApreciativo, feedbackConstructivo);
     if (!feedbackApreciativo?.trim() && !feedbackConstructivo?.trim()) {
       this.feedbackError = true;
       return;
@@ -127,16 +142,19 @@ export class Pregunta6Component implements OnInit, OnDestroy {
     this.feedbackError = false;
 
     if (this.form.valid) {
-
-      localStorage.setItem("member_" + this.member.id, JSON.stringify({
-        member: this.member,
-        feedback: this.form.value
-      }));
+      localStorage.setItem(
+        'member_' + this.member.id,
+        JSON.stringify({
+          member: this.member,
+          feedback: this.form.value,
+        })
+      );
 
       this.cantidadMembersEncuestados++;
 
-      if (this.cantidadMembersEncuestados === this.cantidadMembers) {
+      this.mostrarTextoBoton();
 
+      if (this.cantidadMembersEncuestados === this.cantidadMembers) {
         this.router.navigate(['/poclac/p7']);
         return;
       }
@@ -147,7 +165,7 @@ export class Pregunta6Component implements OnInit, OnDestroy {
       // Desplazarse al principio de la página
       this.viewportScroller.scrollToPosition([0, 0]);
 
-      const memberData = localStorage.getItem("member_" + this.member.id);
+      const memberData = localStorage.getItem('member_' + this.member.id);
       if (memberData) {
         const data = JSON.parse(memberData);
         this.form.patchValue(data.feedback);
@@ -157,10 +175,9 @@ export class Pregunta6Component implements OnInit, OnDestroy {
   }
 
   setarData() {
-
     for (let i = this.members.length - 1; i >= 0; i--) {
-      this.member= this.members[i];
-      const memberData = localStorage.getItem("member_" + this.member.id);
+      this.member = this.members[i];
+      const memberData = localStorage.getItem('member_' + this.member.id);
       if (memberData) {
         const data = JSON.parse(memberData);
         this.form.patchValue(data.feedback);
@@ -168,8 +185,6 @@ export class Pregunta6Component implements OnInit, OnDestroy {
         return;
       }
     }
-
-
   }
 
   atras() {
@@ -177,6 +192,8 @@ export class Pregunta6Component implements OnInit, OnDestroy {
       this.confirmacionRetroceso();
       return;
     }
+
+
 
     this.cantidadMembersEncuestados--;
 
@@ -186,24 +203,24 @@ export class Pregunta6Component implements OnInit, OnDestroy {
     // Desplazarse al principio de la página
     this.viewportScroller.scrollToPosition([0, 0]);
 
-    const memberData = localStorage.getItem("member_" + this.member.id);
+    const memberData = localStorage.getItem('member_' + this.member.id);
     if (memberData) {
       const data = JSON.parse(memberData);
       this.form.patchValue(data.feedback);
     }
 
+    this.mostrarTextoBoton();
   }
 
   eliminarMember() {
     const keys = Object.keys(localStorage);
-    const memberKeys = keys.filter(key => key.startsWith('member_'));
-    memberKeys.forEach(key => localStorage.removeItem(key));
+    const memberKeys = keys.filter((key) => key.startsWith('member_'));
+    memberKeys.forEach((key) => localStorage.removeItem(key));
   }
 
-  validarMembers(){
+  validarMembers() {
     if (this.members.length === 0) {
       this.router.navigate(['/poclac/p5']);
     }
   }
-
 }

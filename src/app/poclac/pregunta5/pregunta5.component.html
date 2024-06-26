@@ -10,7 +10,8 @@
             </span>
         </div>
         <div class="col-12">
-            <label class="form-label text-primary"><b>*</b> Seleccione a los <b>Members</b>: </label>
+            <label class="form-label text-primary"><b>*</b> Seleccione a los <b>Members</b> a evaluar: </label>
+            <p class="text-left text-muted" style="font-size: small;"><i>En la siguiente página se mostrará uno a uno cada miembro para ser evaluado.</i></p>
         </div>
         <div *ngFor="let checkboxControl of checkboxesFormArray.controls;let i = index" [formGroupName]="i"
             style="font-size: small;" class="col-sm-12 col-md-6 col-lg-4  checkbox-container"
