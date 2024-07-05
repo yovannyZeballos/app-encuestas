@@ -8,6 +8,11 @@ export const routes: Routes = [
             import('./poclac/poclac.module').then((m) => m.PoclacModule),
     },
     {
+        path: 'r',
+        loadChildren: () =>
+            import('./encuesta/encuesta.module').then((m) => m.EncuestaModule),
+    },
+    {
         path: 'home',
         component: HomeComponent,
     }

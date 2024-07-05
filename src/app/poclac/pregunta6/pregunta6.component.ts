@@ -2,16 +2,15 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { NivelCumplimientoService } from '../../services/nivel-cumplimiento.service';
 import {
-  FormArray,
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
 import { TipoFeedbackService } from '../../services/tipo-feedback.service';
 import { Router } from '@angular/router';
 import { ViewportScroller } from '@angular/common';
-import { Subscription, SubscriptionLike } from 'rxjs';
+import {  SubscriptionLike } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pregunta6',
@@ -55,7 +54,6 @@ export class Pregunta6Component implements OnInit, OnDestroy {
     this.setarData();
     this.validarMembers();
     this.mostrarTextoBoton();
-    console.log(this.textBoton);
   }
 
   ngOnDestroy() {
@@ -136,6 +134,12 @@ export class Pregunta6Component implements OnInit, OnDestroy {
 
     if (!feedbackApreciativo?.trim() && !feedbackConstructivo?.trim()) {
       this.feedbackError = true;
+      Swal.fire({
+        title: "Advertencia!",
+        text: "No has respondido todas las preguntas que son obligatorias.",
+        icon: "error",
+        confirmButtonColor: '#001E57',
+      });
       return;
     }
 
@@ -171,6 +175,14 @@ export class Pregunta6Component implements OnInit, OnDestroy {
         this.form.patchValue(data.feedback);
         return;
       }
+    }
+    else {
+      Swal.fire({
+        title: "Advertencia!",
+        text: "No has respondido todas las preguntas que son obligatorias.",
+        icon: "error",
+        confirmButtonColor: '#001E57',
+      });
     }
   }
 

@@ -21,6 +21,11 @@ body {
     margin-right: 6rem;
 }
 
+.mx-12 {
+    margin-left: 8rem;
+    margin-right: 8rem;
+}
+
 .mx-8 {
     margin-left: 5rem;
     margin-right: 5rem;
@@ -43,7 +48,7 @@ body {
 
 
 .checkbox-container {
-    padding: 10px;
+    padding: 3px 10px;
     border: 2px solid transparent; /* Borde transparente por defecto */
     border-radius: 5px; /* Opcional: para bordes redondeados */
   }
@@ -51,7 +56,7 @@ body {
   .checkbox-container.checked {
     border-color: #243658; /* Cambia el color del borde cuando está seleccionado */
     background-color: #e9ecef; /* Opcional: cambia el fondo cuando está seleccionado */
-    font-weight: bold;;
+    font-weight: bold;
 }
   
 .spinner-overlay {
@@ -62,4 +67,35 @@ body {
     top: 0;
     background-color: rgba(255, 255, 255, 0.7);
     z-index: 9999;
+}
+
+.font-size-small {
+    font-size: small;
+}
+
+.font-size-x-small {
+    font-size: x-small;
+}
+
+
+
+.mx-custom {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  /* Pantallas medianas (tablets, dispositivos en modo paisaje) */
+  @media (min-width: 768px) {
+    .mx-custom {
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
+  }
+  
+  /* Pantallas grandes (laptops, desktops) */
+  @media (min-width: 992px) {
+    .mx-custom {
+      margin-left: 8rem;
+      margin-right: 8rem;
+    }
   }

@@ -1,0 +1,140 @@
+{
+    "titulo": "Encuesta de conocimiento - Lineamientos Chapter Core y Periféricos Vida",
+    "subtitulo": "¡Bienvenidos!",
+    "descripcion": "Le invitamos a completar esta breve encuesta diseñada para evaluar el nivel de conocimiento sobre los Lineamientos del Chapter Core y Periféricos Vida en nuestra organización. Su participación es fundamental para identificar áreas de mejora y reforzar la comprensión de estos importantes lineamientos.<br><br> La encuesta tomará aproximadamente 20 minutos de su tiempo. Sus respuestas son anónimas y serán tratadas con total confidencialidad. Los resultados nos ayudarán a desarrollar estrategias más efectivas para la implementación y comunicación de estos lineamientos.<br><br> Agradecemos de antemano su tiempo y sinceridad al responder. Su contribución es esencial para el fortalecimiento de nuestra cultura organizacional.",
+    "paginas": [
+        {
+            "id": 1,
+            "titulo": "Home",
+            "descripcion": "Pagina de inicio",
+            "preguntas":[
+                {
+                    "id": 1,
+                    "pregunta": "¿Qué es el COVID-19?",
+                    "multipleRespuestas": true,
+                    "opciones": [
+                        {
+                            "id": 1,
+                            "opcion": "Es una enfermedad infecciosa causada por el coronavirus SARS-CoV-2."
+                        },
+                        {
+                            "id": 2,
+                            "opcion": "Es una enfermedad infecciosa causada por el coronavirus SARS-CoV-1."
+                        },
+                        {
+                            "id": 3,
+                            "opcion": "Es una enfermedad infecciosa causada por el coronavirus SARS-CoV-3."
+                        }
+                    ]
+
+                },
+                {
+                    "id": 2,
+                    "pregunta": "¿Cuáles son los síntomas del COVID-19?",
+                    "multipleRespuestas": false,
+                    "opciones": [
+                        {
+                            "id": 1,
+                            "opcion": "Fiebre"
+                        },
+                        {
+                            "id": 2,
+                            "opcion": "Tos seca"
+                        },
+                        {
+                            "id": 3,
+                            "opcion": "Cansancio"
+                        },
+                        {
+                            "id": 4,
+                            "opcion": "Dolor de garganta"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "titulo": "Síntomas",
+            "descripcion": "Síntomas del COVID-19",
+            "preguntas":[
+                {
+                    "id": 3,
+                    "pregunta": "¿Cuál es el síntoma más común del COVID-19?",
+                    "multipleRespuestas": false,
+                    "opciones": [
+                        {
+                            "id": 1,
+                            "opcion": "Fiebre"
+                        },
+                        {
+                            "id": 2,
+                            "opcion": "Tos seca"
+                        },
+                        {
+                            "id": 3,
+                            "opcion": "Cansancio"
+                        },
+                        {
+                            "id": 4,
+                            "opcion": "Dolor de garganta"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "pregunta": "¿Cuál es el síntoma menos común del COVID-19?",
+                    "multipleRespuestas": false,
+                    "opciones": [
+                        {
+                            "id": 1,
+                            "opcion": "Fiebre"
+                        },
+                        {
+                            "id": 2,
+                            "opcion": "Tos seca"
+                        },
+                        {
+                            "id": 3,
+                            "opcion": "Cansancio"
+                        },
+                        {
+                            "id": 4,
+                            "opcion": "Dolor de garganta"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "titulo": "Prevención",
+            "descripcion": "Medidas de prevención del COVID-19",
+            "preguntas":[
+                {
+                    "id": 5,
+                    "pregunta": "¿Cuál es la medida más efectiva para prevenir el COVID-19?",
+                    "multipleRespuestas": false,
+                    "opciones": [
+                        {
+                            "id": 1,
+                            "opcion": "Uso de mascarilla"
+                        },
+                        {
+                            "id": 2,
+                            "opcion": "Lavado de manos"
+                        },
+                        {
+                            "id": 3,
+                            "opcion": "Distanciamiento social"
+                        },
+                        {
+                            "id": 4,
+                            "opcion": "Vacunación"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

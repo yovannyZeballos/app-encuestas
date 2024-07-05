@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Encuesta } from '../models/encuesta.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EncuestaService {
-  private url = 'https://api-encuestas.netlify.app/.netlify/functions/api/';
+  private url = environment.api + '/encuesta';
 
   constructor(private http: HttpClient) { }
 
-  listar(): Observable<any[]> {
-    return this.http.get<any[]>(this.url);
+  obtener(id:string): Observable<Encuesta> {
+    return this.http.get<Encuesta>(`${this.url}/${id}`);
   }
 
-  crear(respuesta: any): Observable<any> {
-    return this.http.post<any>(this.url + 'respuesta', respuesta);
+  preguntas(id:string): Observable<Encuesta> {
+    return this.http.get<Encuesta>(`${this.url}/${id}/preguntas`);
   }
-
 }

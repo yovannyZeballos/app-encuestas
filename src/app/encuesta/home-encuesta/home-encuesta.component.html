@@ -1,0 +1,59 @@
+<app-encuesta-base>
+    <div class="mx-custom mt-5"  *ngIf="idEncuestaValida" >
+        <div class="row">
+            <div class="col-12 text-center text-primary mt-5">
+                <h2><b>{{encuesta.titulo}}</b></h2>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <form [formGroup]="form" (ngSubmit)="siguiente()" novalidate>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <div class="col-12">
+                                <span
+                                    *ngIf="(submitted || form.get('nombres')?.touched) && form.get('nombres')?.hasError('required')"
+                                    class="text-valid">
+                                    ❗ Esta pregunta requiere una respuesta.
+                                </span>
+                            </div>
+                            <div class="col-12">
+                                <label for="nombres" class="form-label text-primary"><b>*</b> Por favor ingrese su
+                                    nombre y
+                                    apellido: </label>
+                                <input type="text" class="form-control form-control-sm" id="nombres"
+                                    formControlName="nombres">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6">
+                            <div class="col-12">
+                                <span
+                                    *ngIf="(submitted || form.get('correo')?.touched) && form.get('correo')?.hasError('required')"
+                                    class="text-valid">
+                                    ❗ Esta pregunta requiere una respuesta.
+                                </span>
+                            </div>
+                            <div class="col-12">
+                                <label for="correo" class="form-label text-primary"><b>*</b> Por favor ingrese su
+                                    correo: </label>
+                                <input type="text" class="form-control form-control-sm" id="correo"
+                                    formControlName="correo">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button type="button" (click)="atras()"
+                            class="btn btn-primary px-5 py-3 mt-2 mx-2">Ant.</button>
+                        <button type="submit" class="btn btn-primary px-5 py-3 mt-2 mx-2">Sig.</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</app-encuesta-base>
