@@ -21,6 +21,7 @@ export class EncuestaBaseComponent implements OnDestroy {
   idEncuesta: string = '';
   idEncuestaValida: boolean = true;
   encuestaEnviada: boolean = false;
+  anio: number = new Date().getFullYear();
   encuesta: Encuesta = {
     titulo: '',
     subtitulo: '',
