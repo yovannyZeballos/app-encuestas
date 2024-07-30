@@ -24,4 +24,8 @@ export class RespuestaService {
     return this.http.post<any>(this.url + '/respuesta', respuesta);
   }
 
+  listarPoclac(): Observable<any[]> {
+    return this.http.get<any[]>(this.url + '/respuesta-poclac');
+  }
+
 }

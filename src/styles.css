@@ -1,7 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
 :root {
     --bs-primary-rgb: 0, 30, 87;
-    
+
 }
 
 .mt-10 {
@@ -49,16 +50,20 @@ body {
 
 .checkbox-container {
     padding: 3px 10px;
-    border: 2px solid transparent; /* Borde transparente por defecto */
-    border-radius: 5px; /* Opcional: para bordes redondeados */
-  }
-  
-  .checkbox-container.checked {
-    border-color: #243658; /* Cambia el color del borde cuando está seleccionado */
-    background-color: #e9ecef; /* Opcional: cambia el fondo cuando está seleccionado */
+    border: 2px solid transparent;
+    /* Borde transparente por defecto */
+    border-radius: 5px;
+    /* Opcional: para bordes redondeados */
+}
+
+.checkbox-container.checked {
+    border-color: #243658;
+    /* Cambia el color del borde cuando está seleccionado */
+    background-color: #e9ecef;
+    /* Opcional: cambia el fondo cuando está seleccionado */
     font-weight: bold;
 }
-  
+
 .spinner-overlay {
     position: fixed;
     width: 100%;
@@ -82,20 +87,58 @@ body {
 .mx-custom {
     margin-left: 1rem;
     margin-right: 1rem;
-  }
-  
-  /* Pantallas medianas (tablets, dispositivos en modo paisaje) */
-  @media (min-width: 768px) {
+}
+
+/* Pantallas medianas (tablets, dispositivos en modo paisaje) */
+@media (min-width: 768px) {
     .mx-custom {
-      margin-left: 5rem;
-      margin-right: 5rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
     }
-  }
-  
-  /* Pantallas grandes (laptops, desktops) */
-  @media (min-width: 992px) {
+}
+
+/* Pantallas grandes (laptops, desktops) */
+@media (min-width: 992px) {
     .mx-custom {
-      margin-left: 8rem;
-      margin-right: 8rem;
+        margin-left: 8rem;
+        margin-right: 8rem;
     }
-  }
+}
+
+
+/* Estilos personalizados para la barra lateral */
+.sidebar {
+    min-height: 100vh;
+    /* Altura completa */
+    background-color: #f8f9fa;
+    /* Color de fondo */
+    padding: 20px;
+    /* Espaciado interno */
+}
+
+.sidebar a {
+    color: #333;
+    /* Color del texto de los enlaces */
+}
+
+.bg-dark {
+    background-color: #243658 !important; /* Reemplaza #nuevoColor con el código de color deseado */
+}
+
+/* Cambiar el color de fondo de los elementos activos */
+.pagination .page-item.active .page-link {
+    background-color: #243658; /* Verde */
+    border-color: #243658; /* Verde */
+}
+
+/* Cambiar el color de fondo y texto de los botones al pasar el mouse */
+.pagination .page-link:hover {
+    background-color: #ddd;
+    color: #555;
+}
+
+/* Cambiar el color de fondo y texto de los botones deshabilitados */
+.pagination .page-item.disabled .page-link {
+    color: #ccc;
+    background-color: #f5f5f5;
+}

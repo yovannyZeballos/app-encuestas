@@ -13,6 +13,11 @@ export const routes: Routes = [
             import('./encuesta/encuesta.module').then((m) => m.EncuestaModule),
     },
     {
+        path: 'admin',
+        loadChildren: () =>
+            import('./admin/admin.module').then((m) => m.AdminModule),
+    },
+    {
         path: 'home',
         component: HomeComponent,
     }
