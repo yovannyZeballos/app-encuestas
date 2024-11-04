@@ -1,0 +1,34 @@
+<div class="container mt-5 small-font">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-center">
+            <h3>Login</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="usuario" class="form-label"><b>Usuario</b></label>
+                <input type="text" class="form-control form-control-sm" id="usuario" formControlName="usuario" placeholder="Ingrese su usuario">
+                <div *ngIf="loginForm.get('usuario')!.invalid && loginForm.get('usuario')!.touched" class="text-danger small">
+                  <small *ngIf="loginForm.get('usuario')!.errors?.['required']">El usuario es requerido.</small>
+                  <small *ngIf="loginForm.get('usuario')!.errors?.['minlength']">El usuario debe tener al menos 3 caracteres.</small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label"><b>Contraseña</b></label>
+                <input type="password" class="form-control form-control-sm" id="password" formControlName="password" placeholder="Ingrese su contraseña">
+                <div *ngIf="loginForm.get('password')!.invalid && loginForm.get('password')!.touched" class="text-danger small">
+                  <small *ngIf="loginForm.get('password')!.errors?.['required']">La contraseña es requerida.</small>
+                  <small *ngIf="loginForm.get('password')!.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+                </div>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

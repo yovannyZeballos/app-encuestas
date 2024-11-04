@@ -8,19 +8,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { SpinnerComponent } from './component/spinner/spinner.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthComponent } from './auth/auth.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     RouterModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent],
   providers: [

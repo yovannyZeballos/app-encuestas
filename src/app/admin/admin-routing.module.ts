@@ -2,18 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RespuestaPoclacComponent } from './respuesta-poclac/respuesta-poclac.component';
 import { AdminComponent } from './admin.component';
+import { RespuestaComponent } from './respuesta/respuesta.component';
 
 const routes: Routes = [
   {
-    path: 'poclac',
+    path: '',
     component: AdminComponent,
     children: [
       {
-        path: 'listar',
+        path: 'listar-poclac',
         component: RespuestaPoclacComponent,
+      },
+      {
+        path: 'r/:idEncuesta',
+        component: RespuestaComponent,
       }
-    ],
+    ]
   },
+  
 ];
 
 @NgModule({

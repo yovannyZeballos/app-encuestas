@@ -25,7 +25,11 @@ export class RespuestaService {
   }
 
   listarPoclac(): Observable<any[]> {
-    return this.http.get<any[]>(this.url + '/respuesta-poclac');
+    return this.http.get<any[]>(this.url + '/admin/listar-poclac');
+  }
+
+  listarPorEncuesta(idEncuesta: string): Observable<any[]> {
+    return this.http.get<any[]>(this.url + '/admin/listar-resultados/' + idEncuesta);
   }
 
 }

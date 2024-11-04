@@ -1,0 +1,42 @@
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="text-center text-primary">
+            <h4>{{title}}</h4>
+        </div>
+    </div>
+    <div class="col-12">
+        <button (click)="exportarExcel()" class="btn btn-primary"><i class="bi bi-cloud-arrow-down"></i> Exportar excel</button>
+    </div>
+    <div class="col-12 mt-4">
+        <div class="table-responsive font-size-x-small">
+            <table class="table  table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Respuestas</th>
+                        <th scope="col">Porcentaje %</th>
+                        <th scope="col">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody  class="table-group-divider">
+                    <tr *ngFor="let respuesta of respuestas"
+                   >
+                        <td>{{ respuesta.nombres }}</td>
+                        <td>{{ respuesta.correo }}</td>
+                        <td>{{ respuesta.correctas }}</td>
+                        <td  [ngClass]="{
+                            'table-danger': respuesta.porcentaje < 70,
+                            'table-success': respuesta.porcentaje >= 70
+                        }">{{ respuesta.porcentaje | number:'1.2-2' }}</td>
+                        <td>{{ respuesta.fecha | date:'dd/MM/yyyy'  }}</td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+
+    
+</div>
+
+
+
