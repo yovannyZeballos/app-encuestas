@@ -33,11 +33,16 @@
                                     class="text-valid">
                                     ❗ Esta pregunta requiere una respuesta.
                                 </span>
+                                <span
+                                    *ngIf="(submitted || form.get('correo')?.touched) && form.get('correo')?.hasError('email')"
+                                    class="text-valid">
+                                    ❗ Ingrese un correo válido.
+                                </span>
                             </div>
                             <div class="col-12">
                                 <label for="correo" class="form-label text-primary"><b>*</b> Por favor ingrese su
                                     correo: </label>
-                                <input type="text" class="form-control form-control-sm" id="correo"
+                                <input type="email" class="form-control form-control-sm" id="correo"
                                     formControlName="correo">
                             </div>
                         </div>

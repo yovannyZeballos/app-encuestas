@@ -33,7 +33,7 @@ export class LoaderInterceptor implements HttpInterceptor {
           // Opcionalmente, puedes limpiar el token
           this.authService.clearToken();
         }
-        return throwError(() => new Error(error.message));
+        return throwError(() => error);
       }),
       finalize(() => this.loaderService.hideLoader())
     );

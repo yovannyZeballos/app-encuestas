@@ -193,13 +193,23 @@ export class PreguntasComponent extends EncuestaBaseComponent implements OnInit 
       detalles: this.generarListaDetalles(this.form.value),
     };
 
-    this.respuestaService.crear(respuesta).subscribe((res) => {
-      this.enviado = true;
-      localStorage.clear();
-      localStorage.setItem(
-        'encuestaEnviada',
-        JSON.stringify({ id: this.idEncuesta, enviado: true })
-      );
+    this.respuestaService.crear(respuesta).subscribe({
+      next: (res) => {
+        this.enviado = true;
+        localStorage.clear();
+        localStorage.setItem(
+          'encuestaEnviada',
+          JSON.stringify({ id: this.idEncuesta, enviado: true })
+        );
+      },
+      error: (error: any) => {
+        Swal.fire({
+          title: "Advertencia!",
+          text: error.error?.message || 'Ocurrió un error al enviar la encuesta.',
+          icon: "error",
+          confirmButtonColor: '#001E57',
+        });
+      }
     });
   }
 

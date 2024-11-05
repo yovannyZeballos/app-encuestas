@@ -27,7 +27,7 @@ export class HomeEncuestaComponent extends EncuestaBaseComponent{
     const correo = localStorage.getItem('correo') || '';
     this.form = new FormGroup({
       nombres: new FormControl(nombres, Validators.required),
-      correo: new FormControl(correo, Validators.required),
+      correo: new FormControl(correo, [Validators.required, Validators.email]),
     });
   }
 
