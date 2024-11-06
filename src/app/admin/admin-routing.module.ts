@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RespuestaPoclacComponent } from './respuesta-poclac/respuesta-poclac.component';
 import { AdminComponent } from './admin.component';
 import { RespuestaComponent } from './respuesta/respuesta.component';
+import { RespuestaDetalleComponent } from './respuesta-detalle/respuesta-detalle.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'r/:idEncuesta',
         component: RespuestaComponent,
+      },
+      {
+        path: 'r/:idEncuesta/:id',
+        component: RespuestaDetalleComponent,
       }
     ]
   },

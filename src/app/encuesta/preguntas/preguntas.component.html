@@ -43,7 +43,7 @@
                   <div class="form-check">
                     <input class="form-check-input" type="radio"
                       [id]="pregunta.id.toString() + '-' + opcion.id.toString()"
-                      [formControlName]="pregunta.id.toString()" [value]="opcion.id">
+                      [formControlName]="pregunta.id.toString()" [value]="opcion.id" >
                     <label class="form-check-label font-size-small"
                       [for]="pregunta.id.toString() + '-' + opcion.id.toString()">
                       {{opcion.descripcion}}

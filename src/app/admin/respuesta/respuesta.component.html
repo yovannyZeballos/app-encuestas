@@ -17,6 +17,7 @@
                         <th scope="col">Respuestas</th>
                         <th scope="col">Porcentaje %</th>
                         <th scope="col">Fecha</th>
+                        <th scope="col">Detalle</th>
                     </tr>
                 </thead>
                 <tbody  class="table-group-divider">
@@ -30,6 +31,7 @@
                             'table-success': respuesta.porcentaje >= 70
                         }">{{ respuesta.porcentaje | number:'1.2-2' }}</td>
                         <td>{{ respuesta.fecha | date:'dd/MM/yyyy'  }}</td>
+                        <td><a style="cursor: pointer;" class="text-primary" (click)="detalle(respuesta.id)">Detalle</a></td>
                     </tr>
             </table>
         </div>

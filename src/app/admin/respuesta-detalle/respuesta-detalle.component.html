@@ -1,0 +1,21 @@
+<ng-container *ngFor="let respuesta of respuestas; let i = index" >
+    <div class="col-12 px-5 py-2">
+      <div class="row">
+        <div class="col-12">
+          <h5><b></b>{{respuesta.numero}}. {{respuesta.descripcion}}</h5>
+        </div>
+        <ng-container *ngFor="let opcion of respuesta.opciones">
+          <div  [ngClass]="{'checked': opcion.marcada, 'checkbox-container-success': opcion.esCorrecta, 'checkbox-container-incorrect': !opcion.esCorrecta}" class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="radio"
+                [id]="respuesta.id.toString()"
+                [value]="opcion.id" [checked]="opcion.marcada" disabled>
+              <label class="form-check-label font-size-small">
+                {{opcion.descripcion}}
+              </label>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>

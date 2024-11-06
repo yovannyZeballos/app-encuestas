@@ -32,4 +32,8 @@ export class RespuestaService {
     return this.http.get<any[]>(this.url + '/admin/listar-resultados/' + idEncuesta);
   }
 
+  obtenerPorId(id: number, idEncuesta:string): Observable<any[]> {
+    return this.http.get<any[]>(this.url + '/admin/respuesta/' + idEncuesta + '/' + id);
+  }
+
 }

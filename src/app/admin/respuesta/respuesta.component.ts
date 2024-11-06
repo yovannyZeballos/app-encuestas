@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RespuestaService } from '../../services/respuesta.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-respuesta',
@@ -18,7 +18,8 @@ export class RespuestaComponent  implements OnInit {
   }
 
   constructor(private respuestaService:RespuestaService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { 
     this.idEncuesta = this.route.snapshot.paramMap.get('idEncuesta') || '';
   }
@@ -26,13 +27,15 @@ export class RespuestaComponent  implements OnInit {
   listar() {
     this.respuestaService.listarPorEncuesta(this.idEncuesta).subscribe((respuestas: any) => {
       this.respuestas = respuestas;
-      console.log(this.respuestas);
-      
     });
   }
 
   exportarExcel(){
     
+  }
+
+  detalle(id: number) {
+    this.router.navigate(['/admin/r', this.idEncuesta, id]);
   }
 
   

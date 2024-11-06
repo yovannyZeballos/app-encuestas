@@ -64,6 +64,38 @@ body {
     font-weight: bold;
 }
 
+.checkbox-container-success {
+    padding: 3px 10px;
+    border: 2px solid transparent;
+    /* Borde transparente por defecto */
+    border-radius: 5px;
+    /* Opcional: para bordes redondeados */
+}
+
+.checkbox-container-success.checked {
+    border-color: #053a00;
+    /* Cambia el color del borde cuando está seleccionado */
+    background-color: #d8f7cf;
+    /* Opcional: cambia el fondo cuando está seleccionado */
+    font-weight: bold;
+}
+
+.checkbox-container-incorrect {
+    padding: 3px 10px;
+    border: 2px solid transparent;
+    /* Borde transparente por defecto */
+    border-radius: 5px;
+    /* Opcional: para bordes redondeados */
+}
+
+.checkbox-container-incorrect.checked {
+    border-color: #660101;
+    /* Cambia el color del borde cuando está seleccionado */
+    background-color: #fdf2f2;
+    /* Opcional: cambia el fondo cuando está seleccionado */
+    font-weight: bold;
+}
+
 .spinner-overlay {
     position: fixed;
     width: 100%;
@@ -141,4 +173,11 @@ body {
 .pagination .page-item.disabled .page-link {
     color: #ccc;
     background-color: #f5f5f5;
+}
+
+.btn-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
