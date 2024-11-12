@@ -29,7 +29,12 @@ export class RespuestaService {
   }
 
   listarPorEncuesta(idEncuesta: string): Observable<any[]> {
-    return this.http.get<any[]>(this.url + '/admin/listar-resultados/' + idEncuesta);
+    return this.http.get<any[]>(`${this.url}/admin/listar-resultados/${idEncuesta}`).pipe(
+      map(resultados => resultados.map(resultado => {
+        resultado.fecha = new Date(new Date(resultado.fecha).getTime() - 5 * 60 * 60 * 1000).toISOString();
+        return resultado;
+      }))
+    );
   }
 
   obtenerPorId(id: number, idEncuesta:string): Observable<any[]> {
