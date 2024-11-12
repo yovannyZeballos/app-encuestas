@@ -12,7 +12,16 @@
     </div>
 </div>
 
-<ng-container  *ngIf="!encuestaEnviada">
+<div class="d-flex justify-content-center align-items-center vh-100" *ngIf="!encuesta.estado">
+    <div class="mx-custom">
+        <img src="https://st3.depositphotos.com/1269954/14134/v/450/depositphotos_141345378-stock-illustration-inactive-rubber-stamp.jpg" 
+        width="90%"
+        alt="Encuesta enviada" class="img-fluid">
+        <h4 class="text-center text-secondary">La encuesta ya no se encuentra activa</h4>
+    </div>
+</div>
+
+<ng-container  *ngIf="!encuestaEnviada && encuesta.estado">
     <ng-content></ng-content>
 </ng-container>
 
