@@ -38,6 +38,7 @@ export class RespuestasComponent extends EncuestaBaseComponent {
             .reduce((a: any, b: any) => a.concat(b), [])
             .filter((o: any) => o.esCorrecta)
             .length;
+            this.formEnviado = true;
       },
       error: (error: any) => {
         Swal.fire({
@@ -50,8 +51,8 @@ export class RespuestasComponent extends EncuestaBaseComponent {
       }
     });
   }
-  verResultados() {
 
+  verResultados() {
     if (this.dni === '') {
       Swal.fire({
         title: "Advertencia!",
@@ -61,7 +62,6 @@ export class RespuestasComponent extends EncuestaBaseComponent {
       });
       return ;
     }
-    this.formEnviado = true;
     this.listar();
   }
 

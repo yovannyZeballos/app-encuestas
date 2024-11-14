@@ -1,58 +1,72 @@
-<div class="mx-custom mt-1">
+<div class="d-flex justify-content-center align-items-center vh-100" *ngIf="!idEncuestaValida">
+  <div class="mx-custom">
+    <img src="./../../assets/img/404.webp" alt="not found" class="img-fluid">
+    <h4 class="text-center text-secondary">Encuesta no encontrada</h4>
+  </div>
+</div>
+
+<div *ngIf="idEncuestaValida">
+  <div class="mx-custom">
     <div class="row">
-        <div class="col-12 text-center text-primary mt-5">
-            <h2><b>{{encuesta.titulo}}</b></h2>
-        </div>
+      <div class="col-12 text-center text-primary mt-5">
+        <h2><b>{{encuesta.titulo}}</b></h2>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="d-flex justify-content-center mx-custom" *ngIf="!formEnviado">
+  <div class="d-flex justify-content-center mx-custom" *ngIf="!formEnviado">
     <div class="col-sm-12 col-md-6 col-lg-3 text-center">
-        <label for="nombres" class="form-label text-primary"><b>*</b> Por favor ingrese su DNI: </label>
-        <input type="text" class="form-control form-control-sm" id="dni" name="dni" [(ngModel)]="dni">
-        <button class="btn btn-primary mt-3" (click)="verResultados()">Ver resultado</button>
+      <label for="nombres" class="form-label text-primary"><b>*</b> Por favor ingrese su DNI: </label>
+      <input type="text" class="form-control form-control-sm" id="dni" name="dni" [(ngModel)]="dni">
+      <button class="btn btn-primary mt-3" (click)="verResultados()">Ver resultado</button>
     </div>
-</div>
+  </div>
 
-<div class="row mx-custom" *ngIf="formEnviado">
-    <div class="col-12 px-5 py-2">
-        <h4 class="text-primary">Member: <b>{{respuesta.nombres}} ({{respuesta.correo}})</b></h4>
-        <h4 class="text-primary">Resultado: <b>{{totalCorrectas}}/{{totalPreguntas}}</b></h4>
+  <div class="row mx-custom" *ngIf="formEnviado">
+    <div class="col-12 px-5 py-5">
+      <h4 class="text-primary">Member: <b>{{respuesta.nombres}}</b><span class="badge bg-secondary"
+          style="margin-left: 5px;">{{respuesta.correo}}</span></h4>
+      <h4 class="text-primary">Resultado:
+        <span [ngClass]="totalCorrectas >= 15 ? 'badge bg-success': 'badge bg-danger'"
+          style="margin-right: 5px;">{{totalCorrectas}}/{{totalPreguntas}}</span>
+        <span
+          [ngClass]="totalCorrectas >= 15 ? 'badge bg-success': 'badge bg-danger'">{{totalCorrectas/totalPreguntas*100.00
+          | number:'1.2-2'}} %</span>
+      </h4>
     </div>
-    <ng-container *ngFor="let respuesta of respuesta.respuestas; let i = index" >
-        <div class="col-12 px-5 py-2">
-          <div class="row">
-            <div class="col-12">
-              <h5><b></b>{{respuesta.numero}}. {{respuesta.descripcion}}</h5>
-            </div>
-            <ng-container *ngFor="let opcion of respuesta.opciones">
-              <div  [ngClass]="{'checked': opcion.marcada, 
+    <ng-container *ngFor="let respuesta of respuesta.respuestas; let i = index">
+      <div class="col-12 px-5 py-2">
+        <div class="row">
+          <div class="col-12 text-primary">
+            <h5><b></b>{{respuesta.numero}}. {{respuesta.descripcion}}</h5>
+          </div>
+          <ng-container *ngFor="let opcion of respuesta.opciones">
+            <div [ngClass]="{'checked': opcion.marcada, 
                                 'checkbox-container-success': opcion.esCorrecta, 
                                 'checkbox-container-incorrect': !opcion.esCorrecta}" class="col-12">
-                <div class="form-check">
-                  <label class="form-check-label font-size-small">
-                    <i class="text-primary" [ngClass]="{'bi bi-record-circle': !opcion.marcada,
+              <div class="form-check">
+                <label class="form-check-label font-size-small">
+                  <i class="text-primary" [ngClass]="{'bi bi-record-circle': !opcion.marcada,
                                                         'bi bi-record-circle-fill': opcion.marcada
                     }"></i>
-                    {{opcion.descripcion}} 
-                    <i [ngClass]="{'text-success bi bi-check-circle-fill': opcion.esCorrecta || (opcion.correcta && !opcion.marcada),
+                  {{opcion.descripcion}}
+                  <i [ngClass]="{'text-success bi bi-check-circle-fill': opcion.esCorrecta || (opcion.correcta && !opcion.marcada),
                                    'text-danger bi bi-x-circle-fill': !opcion.esCorrecta && opcion.marcada}"></i>
-                  </label>
-                </div>
+                </label>
               </div>
-            </ng-container>
-          </div>
+            </div>
+          </ng-container>
         </div>
+      </div>
     </ng-container>
 
     <div class="text-center">
       <button class="btn btn-primary mt-3" (click)="limpiar()">Realizar otra consulta</button>
+    </div>
   </div>
-    
 </div>
 
 
 <footer class="py-3 my-4" style="font-size: xx-small;">
-    <p class="text-center text-muted">Developed by Champion Chapter Core y Periféricos Vida {{anio}}.</p>
+  <p class="text-center text-muted">Developed by Champion Chapter Core y Periféricos Vida {{anio}}.</p>
 </footer>
-
