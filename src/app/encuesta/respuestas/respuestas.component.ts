@@ -16,6 +16,8 @@ export class RespuestasComponent extends EncuestaBaseComponent {
   dni: string = '';
   formEnviado: boolean = false;
   respuesta: any = {};
+  totalCorrectas: number = 0;
+  totalPreguntas: number = 0;
 
   constructor(
     route: ActivatedRoute,
@@ -30,7 +32,12 @@ export class RespuestasComponent extends EncuestaBaseComponent {
     this.respuestaService.obtenerPorDni(this.dni, this.idEncuesta).subscribe({
       next: (respuesta: any) => {
         this.respuesta = respuesta;
-        console.log(this.respuesta);
+        this.totalPreguntas = this.respuesta.respuestas.length;
+        this.totalCorrectas  = this.respuesta.respuestas
+            .map((r: any) => r.opciones)
+            .reduce((a: any, b: any) => a.concat(b), [])
+            .filter((o: any) => o.esCorrecta)
+            .length;
       },
       error: (error: any) => {
         Swal.fire({
@@ -56,5 +63,13 @@ export class RespuestasComponent extends EncuestaBaseComponent {
     }
     this.formEnviado = true;
     this.listar();
+  }
+
+  limpiar() {
+    this.dni = '';
+    this.formEnviado = false;
+    this.respuesta = {};
+    this.totalCorrectas = 0;
+    this.totalPreguntas = 0;
   }
 }
