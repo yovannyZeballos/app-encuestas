@@ -19,4 +19,8 @@ export class EncuestaService {
   preguntas(id:string): Observable<Encuesta> {
     return this.http.get<Encuesta>(`${this.url}/${id}/preguntas`);
   }
+
+  listar(): Observable<Encuesta[]> {
+    return this.http.get<Encuesta[]>(this.url);
+  }
 }

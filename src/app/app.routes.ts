@@ -2,8 +2,18 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth.guard';
+import { NotFoundComponent } from './component/not-found/not-found.component';
 
 export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        component: HomeComponent,
+    },
     {
         path: 'poclac',
         loadChildren: () =>
@@ -21,11 +31,11 @@ export const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'home',
-        component: HomeComponent,
-    },
-    {
         path: 'auth',
         component: AuthComponent,
+    },
+    {
+        path: '**',
+        component: NotFoundComponent,
     }
 ];

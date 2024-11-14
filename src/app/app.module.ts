@@ -10,13 +10,17 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
 import { SpinnerComponent } from './component/spinner/spinner.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthComponent } from './auth/auth.component';
+import { NotFoundComponent } from './component/not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SpinnerComponent,
-    AuthComponent
+    AuthComponent,
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

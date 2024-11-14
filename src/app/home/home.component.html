@@ -1,7 +1,23 @@
-<div class="text-center text-primary mt-5">
-    <h4>{{title}}</h4>
-
-    <img src="../../assets/img/portada.png"  alt="Portada" class="img-fluid" style="max-width: 80%;">
-
+<div class="container">
+    <div class="text-center text-primary mt-5">
+        <h2>{{title}}</h2>
+        <h4 class="mb-5">Listado de Encuestas</h4>
+    
+        <ul class="list-group list-group-flush" *ngFor="let encuesta of encuestas">
+            <li style="cursor: pointer;" 
+            class="list-group-item d-flex justify-content-between align-items-start"
+            (click)="irEncuesta(encuesta.id)">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">{{encuesta.titulo}}</div>
+                </div>
+                <span class="badge rounded-pill" [ngClass]="encuesta.estado ? 'bg-primary' : 'bg-danger'">
+                    {{encuesta.estado ? 'Activo' : 'Inactivo'}}
+                </span>
+              </li>
+            <li class="list-group-item"></li>
+        </ul>
+    
+    </div>
 </div>
+
 
