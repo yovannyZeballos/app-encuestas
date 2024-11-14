@@ -1,0 +1,51 @@
+<div class="mx-custom mt-5">
+    <div class="row">
+        <div class="col-12 text-center text-primary mt-5">
+            <h2><b>{{encuesta.titulo}}</b></h2>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center" *ngIf="!formEnviado">
+    <div class="col-3 text-center">
+        <label for="nombres" class="form-label text-primary"><b>*</b> Por favor ingrese su DNI: </label>
+        <input type="text" class="form-control form-control-sm" id="dni" name="dni" [(ngModel)]="dni">
+        <button class="btn btn-primary mt-3" (click)="verResultados()">Ver resultado</button>
+    </div>
+</div>
+
+<div class="row mx-custom " *ngIf="formEnviado">
+    <div class="col-12 px-5 py-2">
+        <h4 class="text-primary">Member: <b>{{respuesta.nombres}} ({{respuesta.correo}})</b></h4>
+    </div>
+    <ng-container *ngFor="let respuesta of respuesta.respuestas; let i = index" >
+        <div class="col-12 px-5 py-2">
+          <div class="row">
+            <div class="col-12">
+              <h5><b></b>{{respuesta.numero}}. {{respuesta.descripcion}}</h5>
+            </div>
+            <ng-container *ngFor="let opcion of respuesta.opciones">
+              <div  [ngClass]="{'checked': opcion.marcada, 'checkbox-container-success': opcion.esCorrecta, 'checkbox-container-incorrect': !opcion.esCorrecta}" class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio"
+                    [id]="respuesta.id.toString()"
+                    [value]="opcion.id" [checked]="opcion.marcada" disabled>
+                  <label class="form-check-label font-size-small">
+                    {{opcion.descripcion}} 
+                    <i [ngClass]="{'text-success bi bi-check-circle-fill': opcion.esCorrecta, 
+                    'text-danger bi bi-x-circle-fill': !opcion.esCorrecta && opcion.marcada}"></i>
+                  </label>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    
+</div>
+
+
+<footer class="py-3 my-4" style="font-size: xx-small;">
+    <p class="text-center text-muted">Developed by Champion Chapter Core y Periféricos Vida {{anio}}.</p>
+</footer>
+

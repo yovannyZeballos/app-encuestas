@@ -41,4 +41,8 @@ export class RespuestaService {
     return this.http.get<any[]>(this.url + '/admin/respuesta/' + idEncuesta + '/' + id);
   }
 
+  obtenerPorDni(dni: string, idEncuesta:string): Observable<any[]> {
+    return this.http.get<any[]>(this.url + '/respuesta/' + idEncuesta + '/' + dni);
+  }
+
 }
